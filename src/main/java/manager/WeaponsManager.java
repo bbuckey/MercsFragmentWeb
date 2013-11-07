@@ -11,7 +11,7 @@ import entity.WeaponsEntity;
 import java.util.List;
 
 @Service
-public class Weapons {
+public class WeaponsManager {
 	WeaponsDao weaponsDao;
 	
 	@Autowired
