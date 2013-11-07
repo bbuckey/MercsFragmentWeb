@@ -1,5 +1,19 @@
- <?xml version="1.0" encoding="UTF-8" ?> 
- <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee" xmlns:lang="http://www.springframework.org/schema/lang" xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+<?xml version="1.0" encoding="UTF-8" ?> 
+ <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xmlns:aop="http://www.springframework.org/schema/aop" 
+ xmlns:context="http://www.springframework.org/schema/context" 
+ xmlns:jee="http://www.springframework.org/schema/jee"
+  xmlns:lang="http://www.springframework.org/schema/lang" 
+  xmlns:p="http://www.springframework.org/schema/p" 
+  xmlns:tx="http://www.springframework.org/schema/tx"
+   xmlns:util="http://www.springframework.org/schema/util" 
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
+   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+   http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd 
+   http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd 
+   http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd 
+   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
   <context:annotation-config /> 
  
  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -42,8 +56,56 @@
    <bean id="battleFieldDropsDao" class="dao.BattleFieldDropsDao" depends-on="baseDao">
   </bean>
   
+  
+     <bean id="computerMercsDao" class="dao.ComputerMercsDao" depends-on="baseDao">
+  </bean>
+   
+   <bean id="playerDao" class="dao.PlayerDao" depends-on="baseDao">
+  </bean>
+  
+   <bean id="playerMercsDao" class="dao.PlayerMercsDao" depends-on="baseDao">
+  </bean>
+  
+     <bean id="playerWeaponsDao" class="dao.PlayerWeaponsDao" depends-on="baseDao">
+  </bean>
+  
+   <bean id="weaponsDao" class="dao.WeaponsDao" depends-on="baseDao">
+  </bean>
+  
  <bean id="mercManager" class="manager.MercManager" depends-on="mercsDao">
   <property name="mercsDao" ref="mercsDao" /> 
+  </bean>
+  
+   <bean id="battleFieldDropsManager" class="manager.BattleFieldDropsManager" depends-on="battleFieldDropsDao">
+  <property name="battleFieldDropsDao" ref="battleFieldDropsDao" /> 
+  </bean>
+   
+   <bean id="battleFieldManager" class="manager.BattleFieldManager" depends-on="battleFieldDao">
+  <property name="battleFieldDao" ref="battleFieldDao" /> 
+  </bean>
+  
+   <bean id="bossMercManager" class="manager.BossMercManager" depends-on="bossMercDao">
+  <property name="bossMercDao" ref="bossMercDao" /> 
+  </bean>
+  
+   <bean id="computerMercsManager" class="manager.ComputerMercsManager" depends-on="computerMercsDao">
+  <property name="computerMercsDao" ref="computerMercsDao" /> 
+  </bean>
+  
+   <bean id="playerManager" class="manager.PlayerManager" depends-on="playerDao">
+  <property name="playerDao" ref="playerDao" /> 
+  </bean>
+  
+   <bean id="playerMercsManager" class="manager.PlayerMercsManager" depends-on="playerMercsDao">
+  <property name="playerMercsDao" ref="playerMercsDao" /> 
+  </bean>
+  
+   <bean id="playerWeaponsManager" class="manager.PlayerWeaponsManager" depends-on="playerWeaponsDao">
+  <property name="playerWeaponsDao" ref="playerWeaponsDao" /> 
+  </bean>
+  
+   <bean id="weaponsManager" class="manager.WeaponsManager" depends-on="weaponsDao">
+  <property name="weaponsDao" ref="weaponsDao" /> 
   </bean>
  <!--    <bean id="employee" class="entity.EmployeeEntity" depends-on="employeeDAO">
     </bean>

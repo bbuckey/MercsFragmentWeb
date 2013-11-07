@@ -2,7 +2,7 @@ package dao;
 
 import java.util.List;
 
-import entity.BattleFieldDropsEntity;;
+import entity.BattleFieldDropsEntity;
 
 public class BattleFieldDropsDao extends dao.BaseDAO{
 	
@@ -25,5 +25,10 @@ public class BattleFieldDropsDao extends dao.BaseDAO{
 		}
 	}
 	
+	public List getBattleFieldDropsByBattleFieldID(Integer battleFieldID){
+		return super.getSessionFactory().getCurrentSession()
+				.createSQLQuery("select bfd.id, bfd.MERCS_ID, bfd.WEAPONS_ID, bfd.BATTLEFIELD_ID from base.BattleFieldDrops bfd where bfd.battlefieldID = :bfdid")
+				.addEntity(BattleFieldDropsEntity.class).setParameter("bfdid",battleFieldID).list();
+	}
 
 }

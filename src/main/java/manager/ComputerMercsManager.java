@@ -14,7 +14,7 @@ public class ComputerMercsManager {
 	ComputerMercsDao computerMercsDao;
 	
 	@Autowired
-	public void setComputerMercDao(ComputerMercsDao computerMercsDao){
+	public void setComputerMercsDao(ComputerMercsDao computerMercsDao){
 		this.computerMercsDao = computerMercsDao;
 	}
 	

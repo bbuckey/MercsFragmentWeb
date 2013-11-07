@@ -16,11 +16,11 @@ public class PlayerWeaponsManager {
 	PlayerWeaponsDao playerWeaponsDao;
 	
 	@Autowired
-	public void setPlayerMercsDao(PlayerWeaponsDao playerWeaponsDao){
+	public void setPlayerWeaponsDao(PlayerWeaponsDao playerWeaponsDao){
 		this.playerWeaponsDao = playerWeaponsDao;
 	}
 	
-	public PlayerWeaponsDao getPlayerMercsDao(){
+	public PlayerWeaponsDao getPlayerWeaponsDao(){
 		return this.playerWeaponsDao;
 	}
 	

@@ -30,4 +30,9 @@ public class PlayerDao extends BaseDAO {
 		}
 	}
 	
+	public PlayerEntity getPlayerByID(Integer playerID){
+		PlayerEntity merc = (PlayerEntity) super.getSessionFactory().getCurrentSession().load(PlayerEntity.class, playerID);
+		return merc;
+	}
+	
 }

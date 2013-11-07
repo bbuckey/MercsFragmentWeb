@@ -30,4 +30,10 @@ public class BattleFieldDao extends BaseDAO{
 	}
 	
 	
+	public List getBattleFieldByLevel(Integer levelNumber){
+		return super.getSessionFactory().getCurrentSession()
+				.createSQLQuery("select bf.id, bf.LEVEL_NUMBER from base.battefield bf where bf.level_number = :lnumber")
+				.addEntity(BattleFieldEntity.class).setParameter("lnumber",levelNumber).list();
+	}
+	
 }
