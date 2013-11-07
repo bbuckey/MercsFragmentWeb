@@ -38,6 +38,12 @@ public class PlayerManager {
  
  
     @Transactional
+    public PlayerEntity getPlayerByplayerID(Integer playerID) {
+        return playerDao.getPlayerByID(playerID);
+    }
+ 
+    
+    @Transactional
     public void deletePlayer(Integer playerID) {
     	this.playerDao.deletePlayer(playerID);
     }

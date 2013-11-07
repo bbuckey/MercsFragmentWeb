@@ -28,6 +28,12 @@ public class BattleFieldManager {
  
  
     @Transactional
+    public List getBattleFieldByLevelNumber( Integer levelNumber) {
+        return battleFieldDao.getBattleFieldByLevel(levelNumber);
+    }
+ 
+    
+    @Transactional
     public void deleteBattleField(Integer battleFieldID) {
     	battleFieldDao.deleteBattleField(battleFieldID);
     }

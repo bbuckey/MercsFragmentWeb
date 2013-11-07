@@ -26,6 +26,12 @@ public class BossMercManager {
     public List getAllBossMercs() {
         return bossMercDao.getAllBossMercs();
     }
+    
+    @Transactional
+    public List getBossMercsByBattleFieldID(Integer battleFieldID) {
+        return bossMercDao.getBossMercByBattleFieldID(battleFieldID);
+    }
+ 
  
  
     @Transactional
@@ -43,5 +49,7 @@ public class BossMercManager {
        return this.bossMercDao;
     }
 	
+    
+    
 	
 }

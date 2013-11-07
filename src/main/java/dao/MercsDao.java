@@ -28,4 +28,10 @@ public class MercsDao extends BaseDAO {
 		}
 	}
 	
+	
+	public MercEntity getMercByID(Integer mercId){
+		MercEntity merc = (MercEntity) super.getSessionFactory().getCurrentSession().load(MercEntity.class, mercId);
+		return merc;
+	}
+	
 }

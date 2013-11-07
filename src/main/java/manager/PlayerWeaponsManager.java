@@ -35,6 +35,12 @@ public class PlayerWeaponsManager {
         return playerWeaponsDao.getAllPlayerWeapons();
     }
  
+    
+    @Transactional
+    public List getPlayerWeaponsByPlayerID(Integer playerID) {
+        return playerWeaponsDao.getPlayerWeaponsByPlayerID(playerID);
+    }
+ 
  
     @Transactional
     public void deletePlayerWeapons(Integer playerWeaponID) {

@@ -31,5 +31,11 @@ public class WeaponsDao extends BaseDAO{
 		}
 	}
 	
+	public WeaponsEntity getWeaponsByID(Integer weaponsID){
+		WeaponsEntity merc = (WeaponsEntity) super.getSessionFactory().getCurrentSession().load(WeaponsEntity.class, weaponsID);
+		return merc;
+	}
+	
+	
 	
 }

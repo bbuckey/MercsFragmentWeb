@@ -36,6 +36,12 @@ public class WeaponsManager {
  
  
     @Transactional
+    public WeaponsEntity getWeaponByID(Integer weaponsID) {
+        return weaponsDao.getWeaponsByID(weaponsID);
+    }
+ 
+    
+    @Transactional
     public void deleteWeapons(Integer weaponID) {
     	this.weaponsDao.deleteWeapon(weaponID);
     }

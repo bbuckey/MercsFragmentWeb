@@ -40,5 +40,10 @@ public class ComputerMercsManager {
     	computerMercsDao.deleteComputerMercs(computerMerc);
     }
 	
+    
+    @Transactional
+    public List getComputerMercsByBattleFieldID(Integer battleFieldID) {
+        return computerMercsDao.getComputerMercbyBattleFieldID(battleFieldID);
+    }
 	
 }

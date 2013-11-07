@@ -29,6 +29,13 @@ public class BattleFieldDropsManager {
  
  
     @Transactional
+    public List getBattleFieldDropsByBattleFieldID(Integer battleFieldID) {
+        return battleFieldDropsDao.getBattleFieldDropsByBattleFieldID(battleFieldID);
+    }
+ 
+    
+    
+    @Transactional
     public void deleteBattleFieldDrops(Integer battleFieldDropsID) {
     	battleFieldDropsDao.deleteBattleFieldDrops(battleFieldDropsID);
     }
