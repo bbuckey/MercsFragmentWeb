@@ -15,7 +15,7 @@
    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd 
    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
   <context:annotation-config /> 
- 
+ <tx:annotation-driven /> 
  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
   <property name="driverClassName" value="org.postgresql.Driver" /> 
   <property name="url" value="jdbc:postgresql://localhost:5432/tempDB" /> 
@@ -36,41 +36,84 @@
   <prop key="hibernate.show_sql">true</prop> 
   <prop key="hibernate.default_schema">base</prop> 
   <prop key="hibernate.id.new_generator_mappings">true</prop> 
+  <prop key="hibernate.format_sql">true</prop> 
+  <prop key="hibernate.transaction.auto_close_session">false</prop>
   </props>
   </property>
   </bean>
   
-  <bean id="baseDao" class="dao.BaseDAO" depends-on="sessionFactory">
+  <bean id="baseDao" class="dao.BaseDAO" abstract="true" depends-on="sessionFactory"  >
   <property name="sessionFactory" ref="sessionFactory"/>
   </bean>
  
- <bean id="mercsDao" class="dao.MercsDao" depends-on="baseDao">
+ <bean id="mercsDao" class="dao.MercsDao" >
   </bean>
    
-   <bean id="bossMercDao" class="dao.BossMercDao" depends-on="baseDao">
-  </bean>
+         <bean id="mercsEntity" class="entity.MercEntity" depends-on="mercsDao">
+    </bean>
+  
    
-   <bean id="battleFieldDao" class="dao.BattleFieldDao" depends-on="baseDao">
+   <bean id="bossMercDao" class="dao.BossMercDao" >
   </bean>
   
-   <bean id="battleFieldDropsDao" class="dao.BattleFieldDropsDao" depends-on="baseDao">
-  </bean>
-  
-  
-     <bean id="computerMercsDao" class="dao.ComputerMercsDao" depends-on="baseDao">
-  </bean>
+    <bean id="bossMercEntity" class="entity.BossMercEntity" depends-on="bossMercDao">
+    </bean>
+ 
    
-   <bean id="playerDao" class="dao.PlayerDao" depends-on="baseDao">
+   <bean id="battleFieldDao" class="dao.BattleFieldDao" >
   </bean>
   
-   <bean id="playerMercsDao" class="dao.PlayerMercsDao" depends-on="baseDao">
+   <bean id="battleFieldEntity" class="entity.BattleFieldEntity" depends-on="battleFieldDao">
+    </bean>
+ 
+  
+   <bean id="battleFieldDropsDao" class="dao.BattleFieldDropsDao">
   </bean>
   
-     <bean id="playerWeaponsDao" class="dao.PlayerWeaponsDao" depends-on="baseDao">
+    <bean id="battleFieldDropsEntity" class="entity.BattleFieldDropsEntity" depends-on="battleFieldDropsDao">
+    </bean>
+ 
+  
+     <bean id="computerMercsDao" class="dao.ComputerMercsDao" >
   </bean>
   
-   <bean id="weaponsDao" class="dao.WeaponsDao" depends-on="baseDao">
+    <bean id="computerMercsEntity" class="entity.ComputerMercsEntity" depends-on="computerMercsDao">
+    </bean>
+ 
+   
+   <bean id="playerDao" class="dao.PlayerDao" >
   </bean>
+  
+    
+   <bean id="playerEntity" class="entity.PlayerEntity" depends-on="playerDao">
+    </bean>
+
+  
+   <bean id="playerMercsDao" class="dao.PlayerMercsDao" >
+  </bean>
+  
+      <bean id="playerMercsEntity" class="entity.PlayerMercsEntity" depends-on="playerMercsDao">
+    
+    </bean>
+
+  
+  
+     <bean id="playerWeaponsDao" class="dao.PlayerWeaponsDao" >
+  </bean>
+  
+      <bean id="playerWeaponsEntity" class="entity.PlayerWeaponsEntity" depends-on="playerWeaponsDao">
+    
+    </bean>
+ 
+  
+  
+   <bean id="weaponsDao" class="dao.WeaponsDao">
+  </bean>
+  
+           <bean id="weaponEntity" class="entity.WeaponsEntity" depends-on="weaponsDao">
+    
+    </bean>
+ 
   
  <bean id="mercManager" class="manager.MercManager" depends-on="mercsDao">
   <property name="mercsDao" ref="mercsDao" /> 
@@ -107,11 +150,9 @@
    <bean id="weaponsManager" class="manager.WeaponsManager" depends-on="weaponsDao">
   <property name="weaponsDao" ref="weaponsDao" /> 
   </bean>
- <!--    <bean id="employee" class="entity.EmployeeEntity" depends-on="employeeDAO">
-    </bean>
-  --> 
-  <tx:annotation-driven /> 
+
  <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager" depends-on="sessionFactory">
   <property name="sessionFactory" ref="sessionFactory" /> 
+ 
   </bean>
   </beans>

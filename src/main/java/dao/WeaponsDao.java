@@ -24,15 +24,15 @@ public class WeaponsDao extends BaseDAO{
 		super.getSessionFactory().getCurrentSession().save(merc);
 	}
 	
-	public void deleteWeapon(Integer mercId){
-		WeaponsEntity merc = (WeaponsEntity) super.getSessionFactory().getCurrentSession().load(WeaponsEntity.class, mercId);
+	public void deleteWeapon(Integer weaponsID){
+		WeaponsEntity merc = (WeaponsEntity) super.getSessionFactory().getCurrentSession().createQuery("from WeaponsEntity where id = :meid").setParameter("meid", weaponsID).uniqueResult();
 		if(merc != null){
 			super.getSessionFactory().getCurrentSession().delete(merc);
 		}
 	}
 	
 	public WeaponsEntity getWeaponsByID(Integer weaponsID){
-		WeaponsEntity merc = (WeaponsEntity) super.getSessionFactory().getCurrentSession().load(WeaponsEntity.class, weaponsID);
+		WeaponsEntity merc = (WeaponsEntity) super.getSessionFactory().getCurrentSession().createQuery("from WeaponsEntity where id = :meid").setParameter("meid", weaponsID).uniqueResult();
 		return merc;
 	}
 	

@@ -31,7 +31,7 @@ public class PlayerDao extends BaseDAO {
 	}
 	
 	public PlayerEntity getPlayerByID(Integer playerID){
-		PlayerEntity merc = (PlayerEntity) super.getSessionFactory().getCurrentSession().load(PlayerEntity.class, playerID);
+		PlayerEntity merc = (PlayerEntity) super.getSessionFactory().getCurrentSession().createQuery("from PlayerEntity where id = :meid").setParameter("meid", playerID).uniqueResult();
 		return merc;
 	}
 	

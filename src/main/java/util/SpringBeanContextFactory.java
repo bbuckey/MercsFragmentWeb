@@ -9,7 +9,7 @@ public class SpringBeanContextFactory {
 	private static 	ApplicationContext context = new ClassPathXmlApplicationContext(
 	        new String[] {"SpringBeanContext.xml"});
 	
-	static private BeanFactory loadXmlBeanResources(){
+	static public BeanFactory loadXmlBeanResources(){
 		BeanFactory factory = context;
 		return factory;
 	}

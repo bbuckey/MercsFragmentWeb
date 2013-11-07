@@ -30,7 +30,8 @@ public class MercsDao extends BaseDAO {
 	
 	
 	public MercEntity getMercByID(Integer mercId){
-		MercEntity merc = (MercEntity) super.getSessionFactory().getCurrentSession().load(MercEntity.class, mercId);
+		MercEntity merc = (MercEntity) super.getSessionFactory().getCurrentSession()
+				.createQuery("from MercEntity me where me.id = :meid ").setParameter("meid", mercId).uniqueResult();
 		return merc;
 	}
 	
