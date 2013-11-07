@@ -16,15 +16,15 @@ public class WeaponsDao extends BaseDAO{
 		super();
 	}
 	
-	public List getAllPlayerWeapons(){
+	public List getAllWeapons(){
 		return super.getSessionFactory().getCurrentSession().createQuery("from WeaponsEntity").list();
 	}
 	
-	public void addPlayerWeapon(WeaponsEntity merc){
+	public void addWeapon(WeaponsEntity merc){
 		super.getSessionFactory().getCurrentSession().save(merc);
 	}
 	
-	public void deletePlayerWeapon(Integer mercId){
+	public void deleteWeapon(Integer mercId){
 		WeaponsEntity merc = (WeaponsEntity) super.getSessionFactory().getCurrentSession().load(WeaponsEntity.class, mercId);
 		if(merc != null){
 			super.getSessionFactory().getCurrentSession().delete(merc);
