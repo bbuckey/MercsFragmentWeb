@@ -31,7 +31,7 @@ public class PlayerMercsDao extends BaseDAO{
 	}
 	
 	public List getPlayerMercsByPlayerId(Integer playerID){
-		return super.getSessionFactory().getCurrentSession().createQuery("from PlayerMercsEntity pm where pm.player_id = :pid").setInteger("pid", playerID).list();
+		return super.getSessionFactory().getCurrentSession().createQuery("from PlayerMercsEntity pm where pm.player_id = :pid").setParameter("pid", playerID).list();
 	}
 	
 }
