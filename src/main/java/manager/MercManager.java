@@ -29,8 +29,6 @@ public class MercManager {
         return mercsDao.getMercByID(mercID);
     }
  
-    
- 
     @Transactional
     public void deleteMerc(Integer employeeId) {
     	mercsDao.deleteMerc(employeeId);
