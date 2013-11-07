@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    <mapping class="entity.MercEntity" /> 
+    <mapping class="entity.BattleFieldDropsEntity" />
+    <mapping class="entity.BattleFieldEntity" />
+    <mapping class="entity.BossMercEntity" />
+    <mapping class="entity.ComputerMercsEntity" />
+    <mapping class="entity.PlayerEntity" />
+    <mapping class="entity.PlayerMercsEntity" />
+    <mapping class="entity.PlayerWeaponsEntity" />
+    <mapping class="entity.WeaponsEntity" />
+    </session-factory>
+</hibernate-configuration>
