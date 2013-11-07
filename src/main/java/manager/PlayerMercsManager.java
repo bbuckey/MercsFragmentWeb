@@ -34,6 +34,12 @@ public class PlayerMercsManager {
         return playerMercsDao.getAllPlayerMercs();
     }
  
+    @Transactional
+    public List getPlayerMercsByPlayerID(Integer playerID) {
+        return playerMercsDao.getPlayerMercsByPlayerId(playerID);
+    }
+ 
+    
  
     @Transactional
     public void deletePlayer(Integer playerMercID) {
