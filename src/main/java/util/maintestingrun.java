@@ -4,9 +4,12 @@ import manager.MercManager;
 import entity.MercEntity;
 import entity.ComputerMercsEntity;
 import entity.BossMercEntity;
+import manager.PlayerManager;
+import entity.PlayerEntity;
 import manager.BattleFieldManager;
 import manager.ComputerMercsManager;
 import manager.BossMercManager;
+import java.util.Calendar;
 
 import java.util.List;
 
@@ -24,7 +27,17 @@ public class maintestingrun {
 				.loadXmlBeanResources().getBean("computerMercsManager");
 		BossMercManager bmm = (BossMercManager) SpringBeanContextFactory
 				.loadXmlBeanResources().getBean("bossMercManager");
-
+		PlayerManager pm = (PlayerManager) SpringBeanContextFactory
+				.loadXmlBeanResources().getBean("playerManager");
+		
+	/*	PlayerEntity pe = new PlayerEntity();
+	 *  pe.setCash(0);
+		pe.setExp(0);
+		pe.setGold(0);
+		pe.setLastCashTime(Calendar.getInstance().getTime());
+		pe.setLevel(1);
+		pe.setPlayerName("temp");
+		pm.addPlayer(pe);
 		BossMercEntity cme = new BossMercEntity();
 		cme.setBattleFieldId(1);
 		cme.setAtk((((int)(Math.random()*100000) % 100)+ 25));
@@ -33,7 +46,7 @@ public class maintestingrun {
 		cme.setGold((((int)(Math.random()*100000) % 250)+ 200));
 		cme.setHoldAtk((((int)(Math.random()*100000) % 4)+ 3));
 		cme.setHp((((int)(Math.random()*100000) % 300) + 50));
-		bmm.addBossMerc(cme);
+		bmm.addBossMerc(cme);*/
 	/*	for (int i = 0; i <= 10; i++) {
 			ComputerMercsEntity cme = new ComputerMercsEntity();
 			cme.setBattleFieldId(1);
