@@ -6,9 +6,15 @@ import entity.ComputerMercsEntity;
 import entity.BossMercEntity;
 import manager.PlayerManager;
 import entity.PlayerEntity;
+import manager.PlayerMercsManager;
+import entity.PlayerMercsEntity;
 import manager.BattleFieldManager;
 import manager.ComputerMercsManager;
 import manager.BossMercManager;
+import manager.WeaponsManager;
+import manager.PlayerWeaponsManager;
+import entity.PlayerWeaponsEntity;
+import entity.WeaponsEntity;
 import java.util.Calendar;
 
 import java.util.List;
@@ -29,7 +35,31 @@ public class maintestingrun {
 				.loadXmlBeanResources().getBean("bossMercManager");
 		PlayerManager pm = (PlayerManager) SpringBeanContextFactory
 				.loadXmlBeanResources().getBean("playerManager");
+		PlayerMercsManager pmm = (PlayerMercsManager) SpringBeanContextFactory
+				.loadXmlBeanResources().getBean("playerMercsManager");
+		WeaponsManager wm = (WeaponsManager) SpringBeanContextFactory
+				.loadXmlBeanResources().getBean("weaponsManager");
 		
+	try{
+	    List<PlayerEntity> pList = pm.getAllPlayers();
+	    List<MercEntity> mList = mm.getAllMercs();
+	    PlayerEntity pe= pList.get(0);
+	    	PlayerMercsEntity pme = new PlayerMercsEntity();
+	    	double i = ((Math.random() * 10000) % mList.size()) + 1;
+	    	MercEntity me = mList.get((int)i);
+	    	pme.setMercId(me.getId());
+	    	pme.setPlayerId(pe.getID());
+	    	pme.setMLevel(1);
+	    	pme.setAtk(me.getAtk());
+	    	pme.setDef(me.getDef());
+	    	pme.setHp(me.getHp());
+	    	pme.setMercName(me.getMercName());
+	    	pmm.addPlayer(pme);
+	} catch(Throwable t){
+
+		t.printStackTrace();
+	}
+	    
 	/*	PlayerEntity pe = new PlayerEntity();
 	 *  pe.setCash(0);
 		pe.setExp(0);

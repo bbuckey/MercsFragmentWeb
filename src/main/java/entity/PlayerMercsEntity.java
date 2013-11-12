@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema="base", name="PLAYER")
+@Table(schema="base", name="PLAYERMERCS")
 public class PlayerMercsEntity {
 	
 	@SequenceGenerator(schema= "base", name="serial",sequenceName="serial", allocationSize=1)
@@ -21,10 +21,6 @@ public class PlayerMercsEntity {
 	private Integer playerId;
 	@Column(name="MERCS_ID")
 	private Integer mercId;
-	@Column(name="WEAPONS_ID")
-	private Integer weaponsId;
-	@Column(name="PLAYERWEAPONS_ID")
-	private Integer playerWeaponsId;
 	@Column(name="MERCNAME")
 	private String mercName;
 	@Column(name="HP")
@@ -46,12 +42,6 @@ public class PlayerMercsEntity {
 	}
 	public void setMercId(Integer _id){
 		this.mercId = _id;
-	}
-	public void setWeaponsId(Integer _id){
-		this.weaponsId = _id;
-	}
-	public void setPlayerWeaponsId(Integer _id){
-		this.playerWeaponsId = _id;
 	}
 
 	public void setAtk(Integer _atk){
@@ -103,12 +93,6 @@ public class PlayerMercsEntity {
 	}
 	public Integer getMercId(){
 		return this.mercId;
-	}
-	public Integer getWeaponsId(){
-		return this.weaponsId;
-	}
-	public Integer getPlayerWeaponsId(){
-		return this.playerWeaponsId;
 	}
 
 }
