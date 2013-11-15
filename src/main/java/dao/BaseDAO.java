@@ -2,6 +2,7 @@ package dao;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public abstract class BaseDAO {
 	
@@ -14,7 +15,7 @@ public abstract class BaseDAO {
 	}
 	
 	@Autowired
-	public void setSessionFactory(SessionFactory sessionFactory){
+	public void setSessionFactory(@Qualifier("session") SessionFactory sessionFactory){
 		this.sessionFactory = sessionFactory;
 	}
 	

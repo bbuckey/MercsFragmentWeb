@@ -40,7 +40,7 @@ public class maintestingrun {
 		WeaponsManager wm = (WeaponsManager) SpringBeanContextFactory
 				.loadXmlBeanResources().getBean("weaponsManager");
 		
-	try{
+	/*try{
 	    List<PlayerEntity> pList = pm.getAllPlayers();
 	    List<MercEntity> mList = mm.getAllMercs();
 	    PlayerEntity pe= pList.get(0);
@@ -58,8 +58,15 @@ public class maintestingrun {
 	} catch(Throwable t){
 
 		t.printStackTrace();
-	}
+	}*/
 	    
+		for(Object p :  mm.getAllMercs()){
+			MercEntity me = (MercEntity)p;
+			
+			System.out.println(me.getMercName());
+			
+		}
+		
 	/*	PlayerEntity pe = new PlayerEntity();
 	 *  pe.setCash(0);
 		pe.setExp(0);
