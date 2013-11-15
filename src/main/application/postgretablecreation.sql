@@ -206,8 +206,6 @@ CREATE TABLE base.PlayerMercs
   id integer NOT NULL DEFAULT nextval('base.serial'::regclass),
   mercs_id integer references BASE.Mercs(id),
   player_id integer references BASE.Player(id),
-  weapons_id integer REFERENCES BASE.Weapons(id),
-  PlayerWeapons_id integer REFERENCES BASE.PlayerWeapons(id),
   mercname character varying(30),
   atk  integer,
   def  integer,
