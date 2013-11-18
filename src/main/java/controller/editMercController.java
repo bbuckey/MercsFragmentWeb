@@ -43,14 +43,14 @@ public class editMercController {
     public String addEmployee(@ModelAttribute("merc") MercEntity employee, BindingResult result)
     {	
     	mercManager.addMerc(employee);
-        return "redirect:/MercsFragmentWebWAR";
+        return "redirect:/merc";
     }
  
     @RequestMapping("/merc/delete/{mercId}")
     public String deleteEmplyee(@PathVariable("mercId") Integer mercId)
     {
     	mercManager.deleteMerc(mercId);
-        return "redirect:/MercsFragmentWebWAR";
+        return "redirect:/merc";
     }
     
 }

@@ -41,14 +41,14 @@ public class editPlayerController {
     public String addEmployee(@ModelAttribute("player") PlayerEntity employee, BindingResult result)
     {	
     	playerManager.addPlayer(employee);
-        return "redirect:/MercsFragmentWebWAR/player";
+        return "redirect:/player";
     }
  
     @RequestMapping("/player/delete/{playerId}")
     public String deleteEmplyee(@PathVariable("playerId") Integer mercId)
     {
     	playerManager.deletePlayer(mercId);
-        return "redirect:/MercsFragmentWebWAR/player";
+        return "redirect:/player";
     }
 	
 }
