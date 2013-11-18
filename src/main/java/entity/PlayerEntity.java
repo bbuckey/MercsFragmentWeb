@@ -20,13 +20,13 @@ public class PlayerEntity {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="serial")
 	private Integer id;
 	@Column(name="PLEVEL")
-	private Integer plevel;
+	private int level;
 	@Column(name="EXP")
-	private Integer exp;
+	private int exp;
 	@Column(name="GOLD")
-	private Integer gold;
+	private int gold;
 	@Column(name="CASH")
-	private Integer cash;
+	private int cash;
 	@Column(name="PLAYERNAME")
 	private String playerName;
 	@Column(name="LASTCASHTIME")
@@ -45,7 +45,7 @@ public class PlayerEntity {
 		this.id = _id;
 	}
 	public void setLevel(int _id){
-		this.plevel = _id;
+		this.level = _id;
 	}
 	public void setExp(int _id){
 		this.exp = _id;
@@ -60,13 +60,13 @@ public class PlayerEntity {
 		this.lastCashTime = _date;
 	}
 	
-	public int getID(){
+	public int getId(){
 		return this.id;
 		
 	}
 	
 	public int getLevel(){
-		return this.plevel;
+		return this.level;
 	}
 	
 	public int getExp(){

@@ -22,13 +22,13 @@ public class MercEntity {
 	private String mercName;
 	
 	@Column(name="HP")
-	private Integer hp;
+	private int hp;
 	
 	@Column(name="ATK")
-	private Integer atk;
+	private int atk;
 	
 	@Column(name="DEF")
-	private Integer def;
+	private int def;
 	
 	public void setAtk(Integer _atk){
 		this.atk = _atk;
