@@ -20,17 +20,17 @@ public class ComputerMercsEntity {
 	@Column(name="BATTLEFIELD_ID")
 	private Integer battleFieldId;
 	@Column(name="HP")
-	private Integer hp;
+	private int hp;
 	@Column(name="ATK")
-	private Integer atk;
+	private int atk;
 	@Column(name="DEF")
-	private Integer def;
+	private int def;
 	@Column(name="EXP")
-	private Integer exp;
+	private int exp;
 	@Column(name="GOLD")
-	private Integer gold;
+	private int gold;
 	@Column(name="HOLDATK")
-	private Integer holdAtk;
+	private int holdAtk;
 	@Column(name="drop_ids")
 	private String dropIds;
 		
@@ -56,7 +56,7 @@ public class ComputerMercsEntity {
 			return holdAtk;
 		}
 		
-		public void setID(int _id){
+		public void setId(int _id){
 			this.id = _id;
 		}
 		public void setBattleFieldId(int _id){
@@ -68,7 +68,7 @@ public class ComputerMercsEntity {
 		public void setGold(int _id){
 			this.gold = _id;
 		}
-		public void setDropIDs(String _id){
+		public void setDropIds(String _id){
 			this.dropIds = _id;
 		}
 
@@ -89,7 +89,7 @@ public class ComputerMercsEntity {
 			return this.gold;
 		}
 		
-		public String getDropIDs(){
+		public String getDropIds(){
 			return this.dropIds;
 		}
 

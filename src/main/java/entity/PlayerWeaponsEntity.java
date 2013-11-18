@@ -25,7 +25,7 @@ public class PlayerWeaponsEntity {
 	@Column(name="WEAPONS_ID")
 	private Integer weaponsId;
 	
-	public void setID(Integer _id){
+	public void setId(Integer _id){
 		this.id = _id;
 	}
 	

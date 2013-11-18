@@ -24,13 +24,13 @@ public class PlayerMercsEntity {
 	@Column(name="MERCNAME")
 	private String mercName;
 	@Column(name="HP")
-	private Integer hp;
+	private int hp;
 	@Column(name="ATK")
-	private Integer atk;
+	private int atk;
 	@Column(name="DEF")
-	private Integer def;
+	private int def;
 	@Column(name="MLEVEL")
-	private Integer mLevel;
+	private int level;
 	
 
 	
@@ -48,8 +48,8 @@ public class PlayerMercsEntity {
 		this.atk = _atk;
 	}
 	
-	public void setMLevel(Integer _hp){
-		this.mLevel = _hp;
+	public void setLevel(Integer _hp){
+		this.level = _hp;
 	}
 	
 	public void setHp(Integer _hp){
@@ -84,8 +84,8 @@ public class PlayerMercsEntity {
 		return this.mercName;
 	}
 	
-	public Integer getMLevel(){
-		return this.mLevel;
+	public Integer getLevel(){
+		return this.level;
 	}
 	
 	public Integer getPlayerId(){

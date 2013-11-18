@@ -27,7 +27,7 @@ public class BattleFieldEntity {
 		this.levelNumber = _merc;
 	}
 	
-	public void setID(int id){
+	public void setId(int id){
 		this.id = id;
 	}
 	
@@ -35,7 +35,7 @@ public class BattleFieldEntity {
 		return this.levelNumber;
 	}
 	
-	public int getID(){
+	public int getId(){
 		return this.id;
 	}
 	
