@@ -24,13 +24,13 @@ public class PlayerMercsManager {
 	}
 	
     @Transactional
-    public void addPlayer(PlayerMercsEntity playerMerc) {
+    public void addPlayerMerc(PlayerMercsEntity playerMerc) {
     	this.playerMercsDao.addPlayerMerc(playerMerc);
     }
  
  
     @Transactional
-    public List getAllPlayers() {
+    public List getAllPlayerMercs() {
         return playerMercsDao.getAllPlayerMercs();
     }
  

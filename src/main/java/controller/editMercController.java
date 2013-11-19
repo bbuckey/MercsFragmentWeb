@@ -16,6 +16,7 @@ import entity.MercEntity;
 import manager.MercManager;
 
 @Controller
+@RequestMapping(value = "/merc")
 public class editMercController {
 	
 	private MercManager mercManager;
@@ -29,8 +30,8 @@ public class editMercController {
     	return this.mercManager;
     }
 
-    @RequestMapping(value = "/merc", method = RequestMethod.GET)
-    public String listEmployees(ModelMap map)
+    @RequestMapping(method = RequestMethod.GET)
+    public String listMercs(ModelMap map)
     {
     	map.addAttribute("merc", new MercEntity());
         map.addAttribute("mercList", mercManager.getAllMercs()!= null ? mercManager.getAllMercs() : null);
@@ -39,15 +40,15 @@ public class editMercController {
     }
     
 
-    @RequestMapping(value = "/merc/add", method = RequestMethod.POST)
-    public String addEmployee(@ModelAttribute("merc") MercEntity employee, BindingResult result)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addMerc(@ModelAttribute("merc") MercEntity employee, BindingResult result)
     {	
     	mercManager.addMerc(employee);
         return "redirect:/merc";
     }
  
-    @RequestMapping("/merc/delete/{mercId}")
-    public String deleteEmplyee(@PathVariable("mercId") Integer mercId)
+    @RequestMapping("/delete/{mercId}")
+    public String deleteMerc(@PathVariable("mercId") Integer mercId)
     {
     	mercManager.deleteMerc(mercId);
         return "redirect:/merc";

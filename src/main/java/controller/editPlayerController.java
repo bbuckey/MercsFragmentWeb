@@ -1,6 +1,8 @@
 package controller;
 
+import manager.MercManager;
 import manager.PlayerManager;
+import manager.PlayerMercsManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
@@ -11,13 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.stereotype.Controller;
 
+import entity.MercEntity;
 import entity.PlayerEntity;
+import entity.PlayerMercsEntity;
 
 @Controller
+@RequestMapping("/player")
 public class editPlayerController {
 
+
 	private PlayerManager playerManager;
-	
+
     @Autowired
     public void setPlayerManager(PlayerManager playerManager) {
         this.playerManager = playerManager;
@@ -26,9 +32,9 @@ public class editPlayerController {
     public PlayerManager getPlayerManager(){
     	return this.playerManager;
     }
-
-    @RequestMapping(value = "/player", method = RequestMethod.GET)
-    public String listEmployees(ModelMap map)
+	
+    @RequestMapping(method = RequestMethod.GET)
+    public String listPlayers(ModelMap map)
     {
     	map.addAttribute("player", new PlayerEntity());
         map.addAttribute("playerList", playerManager.getAllPlayers());
@@ -37,18 +43,18 @@ public class editPlayerController {
     }
     
 
-    @RequestMapping(value = "/player/add", method = RequestMethod.POST)
-    public String addEmployee(@ModelAttribute("player") PlayerEntity employee, BindingResult result)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addPlayer(@ModelAttribute("player") PlayerEntity player, BindingResult result)
     {	
-    	playerManager.addPlayer(employee);
+    	playerManager.addPlayer(player);
         return "redirect:/player";
     }
  
-    @RequestMapping("/player/delete/{playerId}")
-    public String deleteEmplyee(@PathVariable("playerId") Integer mercId)
+    @RequestMapping("/delete/{playerId}")
+    public String deletePlayer(@PathVariable("playerId") Integer mercId)
     {
     	playerManager.deletePlayer(mercId);
         return "redirect:/player";
     }
-	
+
 }
