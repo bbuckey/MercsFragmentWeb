@@ -29,7 +29,7 @@ public class ComputerMercsDao extends BaseDAO{
 	
 	public List getComputerMercbyBattleFieldID(Integer battleFieldID){
 		return super.getSessionFactory().getCurrentSession()
-				.createQuery("from ComputerMercsEntity cm  where cm.battlefield_id = :bfid").setParameter("bfid", battleFieldID).list();
+				.createQuery("from ComputerMercsEntity cm  where cm.battlefieldId = :bfid").setParameter("bfid", battleFieldID).list();
 	}
 	
 }

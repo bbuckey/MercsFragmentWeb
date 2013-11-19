@@ -31,6 +31,6 @@ public class BossMercDao extends BaseDAO{
 	
 	public List getBossMercByBattleFieldID(Integer battleFieldID){
 		return super.getSessionFactory().getCurrentSession()
-				.createQuery("from BossMercEntity bm where bm.battlefield_id = :bfid").setParameter("bfid", battleFieldID).list();
+				.createQuery("from BossMercEntity bm where bm.battlefieldId = :bfid").setParameter("bfid", battleFieldID).list();
 	}
 }

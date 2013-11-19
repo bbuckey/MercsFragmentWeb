@@ -31,7 +31,7 @@ public class PlayerWeaponsDao extends BaseDAO{
 	}
 	
 	public List getPlayerWeaponsByPlayerID(Integer playerID){
-		return super.getSessionFactory().getCurrentSession().createQuery("from PlayerWeaponsEntity pw where pw.player_id = :pid").setParameter("pid", playerID).list();
+		return super.getSessionFactory().getCurrentSession().createQuery("from PlayerWeaponsEntity pw where pw.playerId = :pid").setParameter("pid", playerID).list();
 	}
 	
 	

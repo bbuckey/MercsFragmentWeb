@@ -22,7 +22,6 @@ public class editPlayerMercController {
 	private PlayerMercsManager playerMercsManager;
 	private PlayerManager playerManager;
 	private MercManager mercManager;
-	private int playerID;
 	
     @Autowired
     public void setMercManager(MercManager mercManager) {
@@ -55,10 +54,8 @@ public class editPlayerMercController {
     @RequestMapping(value = "/{playerId}", method = RequestMethod.GET)
     public String listPlayerMerc(ModelMap map,@PathVariable("playerId") Integer playerId)
     {
-    	this.playerID = playerId;
     	map.addAttribute("player",playerManager.getPlayerByplayerID(playerId));
-    	map.addAttribute("playerMerc", new PlayerMercsEntity());
-        map.addAttribute("playerMercList", playerMercsManager.getAllPlayerMercs());
+        map.addAttribute("playerMercList", playerMercsManager.getPlayerMercsByPlayerID(playerId));
         map.addAttribute("mercList",mercManager.getAllMercs());
  
         return "editPlayerMerc";
@@ -69,8 +66,7 @@ public class editPlayerMercController {
     public String addPlayerMerc(@PathVariable("playerid") Integer playerId, 
     		@PathVariable("mercId") Integer mercId)
     {	
-    	
-    	 PlayerMercsEntity playerMerc =  new PlayerMercsEntity();
+    	PlayerMercsEntity playerMerc =  new PlayerMercsEntity();
     	MercEntity me = mercManager.getMercByID(mercId);
     	playerMerc.setPlayerId(playerId);
     	playerMerc.setMercId(me.getId());
