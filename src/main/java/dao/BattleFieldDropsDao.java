@@ -27,8 +27,8 @@ public class BattleFieldDropsDao extends dao.BaseDAO{
 	
 	public List getBattleFieldDropsByBattleFieldID(Integer battleFieldID){
 		return super.getSessionFactory().getCurrentSession()
-				.createSQLQuery("from BattleFieldDropsEntity bfd where bfd.battlefieldID = :bfdid")
-				.addEntity(BattleFieldDropsEntity.class).setParameter("bfdid",battleFieldID).list();
+				.createQuery("from BattleFieldDropsEntity bfd where bfd.battlefieldID = :bfdid")
+				.setParameter("bfdid",battleFieldID).list();
 	}
 
 }
