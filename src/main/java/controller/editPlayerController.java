@@ -46,6 +46,7 @@ public class editPlayerController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addPlayer(@ModelAttribute("player") PlayerEntity player, BindingResult result)
     {	
+    	player.setLastCashTime(java.util.Calendar.getInstance().getTime());
     	playerManager.addPlayer(player);
         return "redirect:/player";
     }

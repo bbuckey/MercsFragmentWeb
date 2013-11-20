@@ -4,31 +4,37 @@ import java.util.List;
 
 import entity.BattleFieldDropsEntity;
 
-public class BattleFieldDropsDao extends dao.BaseDAO{
-	
-	BattleFieldDropsDao(){
+public class BattleFieldDropsDao extends dao.BaseDAO {
+
+	BattleFieldDropsDao() {
 		super();
 	}
-	
-	public List getAllBattleFieldDrops(){
-		return super.getSessionFactory().getCurrentSession().createQuery("from BattleFieldDropsEntity").list();
+
+	public List getAllBattleFieldDrops() {
+		return super.getSessionFactory().getCurrentSession()
+				.createQuery("from BattleFieldDropsEntity").list();
 	}
-	
-	public void addBattleFieldDrops(BattleFieldDropsEntity merc){
+
+	public void addBattleFieldDrops(BattleFieldDropsEntity merc) {
 		super.getSessionFactory().getCurrentSession().save(merc);
 	}
-	
-	public void deleteBattleFieldDrops(Integer mercId){
-		BattleFieldDropsEntity merc = (BattleFieldDropsEntity) super.getSessionFactory().getCurrentSession().load(BattleFieldDropsEntity.class, mercId);
-		if(merc != null){
+
+	public void deleteBattleFieldDrops(Integer mercId) {
+		BattleFieldDropsEntity merc = (BattleFieldDropsEntity) super
+				.getSessionFactory().getCurrentSession()
+				.load(BattleFieldDropsEntity.class, mercId);
+		if (merc != null) {
 			super.getSessionFactory().getCurrentSession().delete(merc);
 		}
 	}
-	
-	public List getBattleFieldDropsByBattleFieldID(Integer battleFieldID){
-		return super.getSessionFactory().getCurrentSession()
-				.createQuery("from BattleFieldDropsEntity bfd where bfd.battlefieldID = :bfdid")
-				.setParameter("bfdid",battleFieldID).list();
+
+	public List getBattleFieldDropsByBattleFieldID(Integer battleFieldID) {
+		return super
+				.getSessionFactory()
+				.getCurrentSession()
+				.createQuery(
+						"from BattleFieldDropsEntity bfd where bfd.battlefieldID = :bfdid")
+				.setParameter("bfdid", battleFieldID).list();
 	}
 
 }

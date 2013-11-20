@@ -9,29 +9,36 @@ import java.util.List;
 import entity.PlayerMercsEntity;
 
 @Repository
-public class PlayerMercsDao extends BaseDAO{
+public class PlayerMercsDao extends BaseDAO {
 
-	public PlayerMercsDao(){
+	public PlayerMercsDao() {
 		super();
 	}
-	
-	public List getAllPlayerMercs(){
-		return super.getSessionFactory().getCurrentSession().createQuery("from PlayerMercsEntity").list();
+
+	public List getAllPlayerMercs() {
+		return super.getSessionFactory().getCurrentSession()
+				.createQuery("from PlayerMercsEntity").list();
 	}
-	
-	public void addPlayerMerc(PlayerMercsEntity merc){
+
+	public void addPlayerMerc(PlayerMercsEntity merc) {
 		super.getSessionFactory().getCurrentSession().save(merc);
 	}
-	
-	public void deletePlayerMerc(Integer mercId){
-		PlayerMercsEntity merc = (PlayerMercsEntity) super.getSessionFactory().getCurrentSession().load(PlayerMercsEntity.class, mercId);
-		if(merc != null){
+
+	public void deletePlayerMerc(Integer mercId) {
+		PlayerMercsEntity merc = (PlayerMercsEntity) super.getSessionFactory()
+				.getCurrentSession().load(PlayerMercsEntity.class, mercId);
+		if (merc != null) {
 			super.getSessionFactory().getCurrentSession().delete(merc);
 		}
 	}
-	
-	public List getPlayerMercsByPlayerId(Integer playerID){
-		return super.getSessionFactory().getCurrentSession().createQuery("from PlayerMercsEntity pm where pm.playerId = :pid").setParameter("pid", playerID).list();
+
+	public List getPlayerMercsByPlayerId(Integer playerID) {
+		return super
+				.getSessionFactory()
+				.getCurrentSession()
+				.createQuery(
+						"from PlayerMercsEntity pm where pm.playerId = :pid")
+				.setParameter("pid", playerID).list();
 	}
-	
+
 }
