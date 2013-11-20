@@ -18,7 +18,7 @@ public class WeaponsEntity {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="serial")
 	private int id;
 	
-	@Column(name="WEAPONSNAME")
+	@Column(name="WEAPONNAME")
 	private String weaponsName;
 	
 	@Column(name="HP")
