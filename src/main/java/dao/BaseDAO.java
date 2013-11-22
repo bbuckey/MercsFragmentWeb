@@ -7,13 +7,18 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.DelegatingConnection;
+
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
 import org.apache.commons.dbcp.DelegatingCallableStatement;
 import org.apache.commons.dbcp.DelegatingPreparedStatement;
+import org.springframework.jdbc.support.JdbcUtils;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public abstract class BaseDAO {
 
 	private SessionFactory sessionFactory;
@@ -108,14 +113,15 @@ public abstract class BaseDAO {
 	public static final void cleanupResultSet(final ResultSet rs)
 			throws Exception {
 		if (rs != null && !rs.isClosed()) {
-			rs.close();
+			JdbcUtils.closeResultSet(rs);
 		}
 	}
 	
 	public static final void cleanupStatement(final Statement s)
 			throws Exception {
 		if (s != null && !s.isClosed()) {
-			s.close();
+			JdbcUtils.closeStatement(s);;
+
 		}
 	}
 
