@@ -25,6 +25,19 @@ public class PlayerWeaponsEntity {
 	@Column(name="WEAPONS_ID")
 	private Integer weaponsId;
 	
+	@Column(name="PLAYERMERC_ID")
+	private Integer playerMercId;
+	
+	
+	
+	public void setPlayerMercId(Integer playerMercId){
+		this.playerMercId = playerMercId;
+	}
+	
+	public Integer getPlayerMercId(){
+		return this.playerMercId;
+	}
+	
 	public void setId(Integer _id){
 		this.id = _id;
 	}
